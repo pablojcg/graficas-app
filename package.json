@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "delete:docs": "del docs",
+    "copy:dist": "copyfiles dist/graficasApp/* ./docs -f",
+    "build:href": "ng build --base-href ./",
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~11.2.12",
     "@angular/router": "~11.2.12",
     "chart.js": "^2.9.3",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.0.0",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
